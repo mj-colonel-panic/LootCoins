@@ -1,0 +1,14 @@
+image: python:alpine
+
+services:
+  - name: selenium/standalone-chrome:latest
+    alias: hub
+
+execute:
+  script:
+    - pip install -r requirements.txt
+    - >
+        for i in $(cat $list); do
+            export user=$(echo $i | tr ":" "\t" | awk '{ print $1 }') pass=$(echo $i | tr ":" "\t" | awk '{ print $2 }')
+            python3 lootcoins.py
+        done
