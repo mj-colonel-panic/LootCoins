@@ -1,11 +1,12 @@
 # lootcoins - Selenium Project to claim monthly reward
 This project will ultimately be run as a docker image, in conjunction with `selenium/standalone-chrome` to create an automated, headless run.
 
-## Configure this project automatically run
-#### Schedule the job to run monthly
+## Configure this project to run automatically
+#### Schedule a cron to execute monthly
 To schedule this job to run on a recurring schedule, navigate to CI / CD -> Schedules.  I use a custom cron that runs on the 5th of the month at 7am UTC, but this would work with the standard monthly option also.
 
-To provide the username and password for the job to run, configure the variables section to mount a file (not variable) named "list" which contains a new-line seperated set of username:password key/value pairs.  See the image for example.
+To provide the credentials for the job to run, configure the variables section to mount a `file` (not variable) named `list` which contains a new-line seperated set of `username:password` key/value pairs.  Once saved, the job will run on the set schedule.  See the image for example.
+
 ![CronExample](images/cron1.png)
 
 ## Using the image to run locally
