@@ -12,3 +12,5 @@ execute:
             export user=$(echo $i | tr ":" "\t" | awk '{ print $1 }') pass=$(echo $i | tr ":" "\t" | awk '{ print $2 }')
             python3 lootcoins.py
         done
+  only:
+    - schedules
