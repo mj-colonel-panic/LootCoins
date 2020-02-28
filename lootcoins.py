@@ -28,6 +28,7 @@ try:
     element.click()
     print(user_name[:2] + "****** => Looted coins.")
 except NoSuchElementException as exception:
-    print(user_name[:2] + "****** => No coins to loot.")
+    element = driver.find_element_by_class_name("RewardMessage")
+    print(user_name[:2] + "****** => " + element.text)
 finally:
     driver.close()
