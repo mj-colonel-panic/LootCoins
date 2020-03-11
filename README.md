@@ -1,6 +1,6 @@
 # lootcoins
 ## Selenium Project to claim monthly reward for Dragonrealms subscribers
-This project will ultimately be run as a docker image, in conjunction with `selenium/standalone-chrome` to create an automated, headless run.
+This project will ultimately be run using the `python:alpine` docker image, in conjunction with `selenium/standalone-chrome` to create an automated, headless run.
 
 ## Configure this project to run automatically
 #### Schedule a cron to execute monthly
