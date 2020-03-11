@@ -8,9 +8,12 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 user_name = os.environ["user"]
 password = os.environ["pass"]
 
+
 driver = webdriver.Remote(
    command_executor='http://hub:4444/wd/hub',
    desired_capabilities=DesiredCapabilities.CHROME)
+
+# driver = webdriver.Chrome()
 
 driver.get("https://store.play.net/Account/SignIn?returnURL=%2F")
 page_title = driver.title
@@ -28,7 +31,10 @@ try:
     element.click()
     print(user_name[:2] + "****** => Looted coins.")
 except NoSuchElementException as exception:
-    element = driver.find_element_by_class_name("RewardMessage")
-    print(user_name[:2] + "****** => " + element.text)
+    try:
+        element = driver.find_element_by_class_name("RewardMessage")
+        print(user_name[:2] + "****** => " + element.text)
+    except NoSuchElementException as exception:
+        print(user_name[:2] + "****** => Account not active")
 finally:
     driver.close()
